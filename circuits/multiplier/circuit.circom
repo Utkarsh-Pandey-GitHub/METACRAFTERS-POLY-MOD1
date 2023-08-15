@@ -8,16 +8,21 @@ template Multiplier2 () {
    
    signal x;
 
-   signal output y;
+   signal  y;
 
+   signal output q;
    component and = AND();
    component not = NOT();
+   component or = OR();
 
    and.a <== a;
    and.b <== b;
    x <== and.out;
-   not.in <== x;
+   not.in <== b;
    y <== not.out;
+   or.a <== x;
+   or.b <== y;
+   q <== or.out;
 
 
 }
